@@ -10,6 +10,8 @@
     %script{:type => "text/javascript", :src => "/javascripts/application.js"}
     
   %body
-    = partial :_nav_main
+    -# we don't need a navigation partial on the index page
+    -# the index page itself is a navigation page
+    -# = partial :_nav_main
     = yield
     = partial :_analytics

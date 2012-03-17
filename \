@@ -20,27 +20,12 @@ a
 
 body
   +font-default
-  color: #00fa64
+  color: #0d0d0d
   background-image: url("/images/bg_pattern.jpg")
-  font-family: monospace
-  font-weight: bold
-  font-size: 16px
-  padding: 40px
   h1
-    font-family: serif
-    // padding-top: 0.5em
-    font-size: 52px
+    padding-top: 1em
+    // font-size: 40px
     font-weight: bold
     text-align: center
+    font-family: serif
     color: cyan
-  .content
-    padding-top: 20px
-  #bignav
-    padding: 5px
-    margin: 0 auto
-    width: 630px
-    text-align: center
-    img
-      width: 200px
-      height: 200px
-      cursor: pointer
