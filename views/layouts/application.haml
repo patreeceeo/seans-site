@@ -5,13 +5,14 @@
     %meta{:name => "lang", :content => "en"}
     %title welcome home, son
     %link{:href=>'/stylesheets/application.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"}
-    %script{:type => "text/javascript", :src => "http://code.jquery.com/jquery-1.5.min.js"}
+    %script{:type => "text/javascript", :src => "/javascripts/lib/jquery-1.7.2.min.js"}
     %script{:type => "text/javascript", :src => "/javascripts/lib/modernizr-1.6.min.js"}
     %script{:type => "text/javascript", :src => "/javascripts/application.js"}
+    %script(type="text/javascript" src="/javascripts/lib/bootstrap-scrollspy.js")
     
   %body
     -# we don't need a navigation partial on the index page
     -# the index page itself is a navigation page
     -# = partial :_nav_main
     = yield
-    = partial :_analytics
+    = partial :analytics

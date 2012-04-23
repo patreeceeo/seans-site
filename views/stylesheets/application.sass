@@ -1,11 +1,14 @@
 @import compass/reset
 @import compass/utilities
 @import compass/css3
+@import "compass/css3/transition"
 
 // Base font
 =font-default
   font: 13px Arial, Helvetica, sans-serif
   
+$default-transition-function: ease
+
 // Links
 a
   color: #3366CC
@@ -25,8 +28,32 @@ body
   font-family: monospace
   font-weight: bold
   font-size: 16px
-  padding: 40px
+  padding: 0
+  .page
+    +single-transition
+    position: absolute
+    left: -100%
+    width: 848px
+  .page.showing
+    left: 50%
+    margin-left: -424px 
+    .sidebar
+      position: fixed
+      top: 0
+      left: 0
+      padding: 10px
+      list-style: none
+      background-color: rgba(255,255,255,0.50)
+      li.active
+        a
+          color: black
+  .btn
+    cursor: pointer
+  .comics
+    .panel
+    .panel.showing
   h1
+    padding-top: 40px
     font-family: serif
     // padding-top: 0.5em
     font-size: 52px
@@ -34,7 +61,6 @@ body
     text-align: center
     color: cyan
   .content
-    padding-top: 20px
   #bignav
     padding: 5px
     margin: 0 auto
@@ -43,4 +69,3 @@ body
     img
       width: 200px
       height: 200px
-      cursor: pointer

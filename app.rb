@@ -1,9 +1,10 @@
 require 'rubygems'
 require 'sinatra'
 require 'haml'
+require 'rest-client'
 
 # Helpers
-require './lib/render_partial'
+require './lib/helpers'
 
 # Set Sinatra variables
 set :app_file, __FILE__
