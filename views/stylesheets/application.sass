@@ -32,21 +32,32 @@ body
   .page
     +single-transition
     position: absolute
-    left: -100%
     width: 848px
+    .nav
+      position: absolute
+  .page.left
+    left: -200%
+  .page.right
+    right: -200%
+  .page.top
+    top: -200%
+  .page.bottom
+    bottom: -200%
   .page.showing
     left: 50%
+    top: 0px
     margin-left: -424px 
-    .sidebar
+    .nav
       position: fixed
       top: 0
       left: 0
       padding: 10px
-      list-style: none
       background-color: rgba(255,255,255,0.50)
-      li.active
-        a
-          color: black
+    .sidebar
+      list-style: none
+    li.active
+      a
+        color: black
   .btn
     cursor: pointer
   .comics
@@ -61,11 +72,16 @@ body
     text-align: center
     color: cyan
   .content
-  #bignav
-    padding: 5px
+  .bignav
     margin: 0 auto
     width: 630px
     text-align: center
-    img
+    padding: 5px
+    .btn
+      margin-bottom: 10px
+      display: inline-block
       width: 200px
-      height: 200px
+      height: 200px 
+      background-color: rgba(255,255,255,0.50)
+      vertical-align: middle
+      text-align: center

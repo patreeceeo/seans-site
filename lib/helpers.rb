@@ -43,15 +43,23 @@ module Sinatra
     end
 
     def each_content_item(type, &block)
-      list_link = s3_link "/#{type}/#{type}.list"
-      print "fetching #{list_link}\n"
-      arr = (RestClient.get list_link).split
+      list_link = "public/#{type}.list"
+      # print "fetching #{list_link}\n"
+      # arr = (RestClient.get list_link).split
+      arr = File.open(list_link).read.split
       arr.each do |item| 
-        block.call(item)
+        name, sep, ext = item.rpartition(".") 
+        block.call(name, ext)
       end
       nil
     end
+
+    def content_cover(name)
+      list_link = "public/#{name}.list"
+      arr = File.open(list_link).read.split[0]
+    end
   end
+  
 
   helpers Helpers
 end

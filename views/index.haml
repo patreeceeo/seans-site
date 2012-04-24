@@ -1,32 +1,39 @@
-#home.page.showing
+#home.page.left.showing
   %h1 PRETTY AWFUL.net
   #home_content.content
     hi i'm sean and i'm pretty awful. here is where i put the things i make and they are pretty aweful too.
-    #bignav
+    .bignav
       %img.btn(src="/images/comics.png" onClick="showPage('comics')")
       %img.btn{:src=>"/images/art.png"}
       %img.btn{:src=>"/images/about.png"}
       %img.btn{:src=>"/images/design.png"}
       %img.btn{:src=>"/images/links.png"} 
 
-#comics.page(data-spy="scroll")
-  .nav
-    %ul.sidebar
-      %li JUMP TO
-      = each_content_item("comics") do |i|
-        - wo_ext = i.rpartition(".")[0]
-        %li 
-          %a{:href=>"#comic-panel-#{wo_ext}"}= wo_ext
-      %li
-        %a(href="#" onClick="showPage('home')") &lt;&lt;HOME
-  .content.comics
-    = each_content_item("comics") do |i|
-      - wo_ext = i.rpartition(".")[0]
-      %img.panel{:name=>"comic-panel-#{wo_ext}", :id=>"comic-panel-#{wo_ext}", :src=>s3_link("/comics/#{i}")}
+#comics.page.left
+  %h1 COMICS
+  .bignav
+    = each_content_item("comics/comics") do |comic_name, comic_ext|
+      - image = content_cover("comics/#{comic_name}")
+      %img.btn{:src=>"comics/#{image}", :onClick=>"showPage('comic-#{comic_name}')"}
+    .btn(onClick="showPage('home')") HOME
 
-  %a.btn(onClick="showPrev('panel')") Previous
-  %a.btn(onClick="showPage('home')") Home
-  %a.btn(onClick="showNext('panel')") Next
+= each_content_item("comics/comics") do |comic_name, comic_ext|
+  .page.left{:id=>"comic-#{comic_name}"} 
+    .nav
+      %ul.sidebar
+        -# %li JUMP TO
+        = each_content_item("comics/#{comic_name}") do |panel_name, panel_ext|
+          %li 
+            %a{:href=>"#comic-panel-#{panel_name}"}= panel_name
+        %li
+          %a(href="#" onClick="showPage('comics')") &lt;&lt;COMICS
+    .content.comics
+      = each_content_item("comics/#{comic_name}") do |panel_name, panel_ext|
+        %img.panel{:name=>"comic-panel-#{panel_name}", :id=>"comic-panel-#{panel_name}", :src=>"/comics/#{panel_name}.#{panel_ext}"}
+
+  -# %a.btn(onClick="showPrev('panel')") Previous
+  -# %a.btn(onClick="showPage('home')") Home
+  -# %a.btn(onClick="showNext('panel')") Next
 
 
 
