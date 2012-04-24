@@ -46,15 +46,17 @@ function scrollYMin(el) {
 }
 
 function scrollYMax(el) {
-  return el.next().offset().top
+  return el.offset().top + el.height();
 }
 
 function pageShown(name) {
-  var pageEl = $("#"+name);
-  $(this).scrollTop(0);
+  var navEl = activeSubNavEl();
+  if(navEl) {
+    var yScroll = scrollYMin(referencedEl(navEl));
+    $(this).scrollTop(yScroll);
+  }
   function updateNav (e) {
     var navEl = activeSubNavEl();
-    // var refdEl = referencedEl(navEl);
     var yScroll = $(this).scrollTop();
     navEl.removeClass("active");
     while(yScroll >= scrollYMax(referencedEl(navEl)))
@@ -62,19 +64,9 @@ function pageShown(name) {
     while(yScroll < scrollYMin(referencedEl(navEl))-1)
       navEl = navEl.prev();
     navEl.addClass("active");
-    // if(yScroll >= scrollYMax(refdEl)) {
-    //   navEl.removeClass("active");
-    //   navEl.next().addClass("active");
-    // } else if (yScroll < scrollYMin(refdEl)-1) {
-    //   navEl.removeClass("active");
-    //   navEl.prev().addClass("active");
-    // } else navEl.addClass("active");
   }(null);
 
-  if(pageEl != null && pageEl.size() > 0) {
-    console.log("adding callback");
-    $(this).scroll(updateNav); 
-  }
+  $(this).scroll(updateNav); 
 
 }
 
