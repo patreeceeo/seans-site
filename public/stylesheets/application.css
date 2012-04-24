@@ -68,7 +68,7 @@ a:focus, a:active {
 body {
   font: 13px Arial, Helvetica, sans-serif;
   color: #00fa64;
-  background-image: url("/images/bg_pattern.jpg");
+  background-image: url("/images/bg_pattern_sampled.png");
   font-family: monospace;
   font-weight: bold;
   font-size: 16px;
