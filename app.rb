@@ -21,3 +21,9 @@ end
 get '/about' do
   haml :about, :layout => :'layouts/page'
 end
+
+get '/comics/:name' do |name|
+  puts "comic name: " + name
+  haml :comic, :layout => :'layouts/application', :locals => {:comic_name => name}
+end
+

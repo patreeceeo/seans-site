@@ -54,6 +54,40 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
+[id$="page"] {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  position: absolute;
+  width: 848px;
+}
+[id$="page"].nav {
+  position: absolute;
+}
+[id$="page"].left {
+  left: -200%;
+}
+[id$="page"].center {
+  left: 50%;
+  top: 0px;
+  margin-left: -424px;
+}
+[id$="page"].center .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+[id$="page"].center .sidebar {
+  list-style: none;
+}
+[id$="page"].center li.active a {
+  color: black;
+}
+
 a {
   color: #3366cc;
 }
@@ -73,48 +107,6 @@ body {
   font-weight: bold;
   font-size: 16px;
   padding: 0;
-}
-body .page {
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-  position: absolute;
-  width: 848px;
-}
-body .page .nav {
-  position: absolute;
-}
-body .page.left {
-  left: -200%;
-}
-body .page.right {
-  right: -200%;
-}
-body .page.top {
-  top: -200%;
-}
-body .page.bottom {
-  bottom: -200%;
-}
-body .page.showing {
-  left: 50%;
-  top: 0px;
-  margin-left: -424px;
-}
-body .page.showing .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-body .page.showing .sidebar {
-  list-style: none;
-}
-body .page.showing li.active a {
-  color: black;
 }
 body .btn {
   cursor: pointer;

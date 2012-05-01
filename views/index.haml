@@ -1,39 +1,20 @@
-#home.page.left.showing
+#home-page.center
   %h1 PRETTY AWFUL.net
-  #home_content.content
-    hi i'm sean and i'm pretty awful. here is where i put the things i make and they are pretty aweful too.
+  .content-container
+    hi i'm sean and i'm pretty awful. here is where i put the things i make and they are pretty awful too.
     .bignav
-      %img.btn(src="/images/comics.png" onClick="showPage('comics')")
+      %img.btn(src="/images/comics.png" onClick="showPage('comics-menu')")
       %img.btn{:src=>"/images/art.png"}
       %img.btn{:src=>"/images/about.png"}
       %img.btn{:src=>"/images/design.png"}
       %img.btn{:src=>"/images/links.png"} 
 
-#comics.page.left
+#comics-menu-page.left
   %h1 COMICS
   .bignav
     = each_content_item("comics/comics") do |comic_name, comic_ext|
       - image = content_cover("comics/#{comic_name}")
-      %img.btn{:src=>"comics/#{image}", :onClick=>"showPage('comic-#{comic_name}')"}
+      %a(href="comics/#{comic_name}")
+        %img.btn{:src=>"comics/#{image}"}
     .btn(onClick="showPage('home')") HOME
-
-= each_content_item("comics/comics") do |comic_name, comic_ext|
-  .page.left{:id=>"comic-#{comic_name}"} 
-    .nav
-      %ul.sidebar
-        -# %li JUMP TO
-        = each_content_item("comics/#{comic_name}") do |panel_name, panel_ext|
-          %li 
-            %a{:href=>"#comic-panel-#{panel_name}"}= panel_name
-        %li
-          %a(href="#" onClick="showPage('comics')") &lt;&lt;COMICS
-    .content.comics
-      = each_content_item("comics/#{comic_name}") do |panel_name, panel_ext|
-        %img.panel{:name=>"comic-panel-#{panel_name}", :id=>"comic-panel-#{panel_name}", :src=>"/comics/#{panel_name}.#{panel_ext}"}
-
-  -# %a.btn(onClick="showPrev('panel')") Previous
-  -# %a.btn(onClick="showPage('home')") Home
-  -# %a.btn(onClick="showNext('panel')") Next
-
-
 

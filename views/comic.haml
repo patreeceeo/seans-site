@@ -1,0 +1,13 @@
+
+#comics-page.center
+  .nav
+    %ul.sidebar
+      -# %li JUMP TO
+      = each_content_item("comics/#{comic_name}") do |panel_name, panel_ext|
+        %li 
+          %a{:href=>"#comic-panel-#{panel_name}"}= panel_name
+      %li
+        %a(href="/") go home
+  .content.comics
+    = each_content_item("comics/#{comic_name}") do |panel_name, panel_ext|
+      %img.panel{:name=>"comic-panel-#{panel_name}", :id=>"comic-panel-#{panel_name}", :src=>"/comics/#{panel_name}.#{panel_ext}"}

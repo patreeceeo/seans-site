@@ -9,6 +9,32 @@
   
 $default-transition-function: ease
 
+
+[id$="page"]
+  +single-transition
+  position: absolute
+  &.nav
+    position: absolute
+  width: 848px
+  &.left
+    left: -200%
+  &.center
+    left: 50%
+    top: 0px
+    margin-left: -424px 
+    .nav
+      position: fixed
+      top: 0
+      left: 0
+      padding: 10px
+      background-color: rgba(255,255,255,0.50)
+    .sidebar
+      list-style: none
+    li.active
+      a
+        color: black
+
+
 // Links
 a
   color: #3366CC
@@ -30,34 +56,6 @@ body
   font-size: 16px
   padding: 0
   .page
-    +single-transition
-    position: absolute
-    width: 848px
-    .nav
-      position: absolute
-  .page.left
-    left: -200%
-  .page.right
-    right: -200%
-  .page.top
-    top: -200%
-  .page.bottom
-    bottom: -200%
-  .page.showing
-    left: 50%
-    top: 0px
-    margin-left: -424px 
-    .nav
-      position: fixed
-      top: 0
-      left: 0
-      padding: 10px
-      background-color: rgba(255,255,255,0.50)
-    .sidebar
-      list-style: none
-    li.active
-      a
-        color: black
   .btn
     cursor: pointer
   .comics
